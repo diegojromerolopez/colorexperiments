@@ -1,0 +1,7 @@
+*.class
+*.properties
+DJBDD/build/*
+bigdata/*
+.~lock.*
+.DS_Store
+*~
