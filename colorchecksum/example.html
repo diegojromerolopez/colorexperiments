@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<title>SHA1 Color Example</title>
+
+		<style>
+		#checksum{
+			width: 300px;
+		}
+		#checksum_canvas{
+			_border: 1px solid black;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+			width: auto;
+		}
+		#canvases_container{
+			overflow: hidden;
+		}
+		#grayscale_container,
+		#color_container{
+			float: left;
+			margin-right: 20px;
+		}
+		
+		</style>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="js/colorchecksum.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				$("#checksum").change(function(){
+					var checksum = $(this).val();
+					if(checksum.length > 0){
+						var blocks_per_row = 5;
+						var debug = true;
+						graycolor_checksum("grayscale_canvas", checksum, blocks_per_row, debug);
+						color_checksum("color_canvas", checksum, blocks_per_row, debug);
+					}
+				});
+			
+				$(".example").click(function(){
+					$("#checksum").val($(this).html()).change();
+				});
+				
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<div>
+			<h1>Color checksum test</h1>
+			<p>This is an example of a checksum colorizer or whatever</p>
+		</div>
+		<div>
+			<p>Insert a checksum and see as the colors change</p>
+			<p>
+				<input type="text" name="checksum" id="checksum" />
+				<div>
+					<p>Click the examples:</p>
+					<div><a class="example" href="javascript:void();">de9f2c7fd25e1b3afad3e85a0bd17d9b100db4b3</a></div>
+					<div><a class="example" href="javascript:void();">da39a3ee5e6b4b0d3255bfef95601890afd80709</a></div>
+					<div><a class="example" href="javascript:void();">2fd4e1c67a2d28fced849ee1bb76e7391b93eb12</a></div>
+					<div><a class="example" href="javascript:void();">9e107d9d372bb6826bd81d3542a419d6</a></div>
+				</div>
+			</p>
+		</div>
+		<div id="canvases_container">
+			<div id="grayscale_container">
+				<h2>Grayscale canvas</h2>
+				<canvas id="grayscale_canvas" width="500" height="500"></canvas>
+			</div>
+			
+			<div id="color_container">
+				<h2>Color canvas</h2>
+				<canvas id="color_canvas" width="500" height="500"></canvas>
+			</div>
+		</div>
+	</body>
+
+</html>
