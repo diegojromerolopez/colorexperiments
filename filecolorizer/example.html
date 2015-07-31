@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<title>File colorizer Example</title>
+
+		<style>
+		#drop_zone{
+			border: 1px solid black;
+			height: 200px;
+			width: 500px;
+		}
+		#checksum{
+			width: 300px;
+		}
+		#grayscale_canvas{
+			border: 1px solid black;
+			height: auto;
+			margin-left: auto;
+			margin-right: auto;
+			width: auto;
+		}
+		#canvases_container{
+			overflow: hidden;
+		}
+		#grayscale_container,
+		#color_container{
+			float: left;
+			margin-right: 20px;
+		}
+		
+		</style>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="js/filecolorizer.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				if (window.File && window.FileReader && window.FileList && window.Blob) {
+  					// Great success! All the File APIs are supported.
+				} else {
+  					alert('The File APIs are not fully supported in this browser.');
+				}
+				
+				
+				$("#file").change(function(){
+					
+				});
+			
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<div>
+			<h1>File colorizer test</h1>
+			<p>This is an example of a checksum colorizer or whatever</p>
+		</div>
+		<div>
+			<p>Insert a checksum and see as the colors change</p>
+			<p>
+				<div id="drop_zone">Drop the file here</div>
+				<div id="files"></div>
+			</p>
+		</div>
+		<div id="canvases_container">
+			<div id="grayscale_container">
+				<h2>Grayscale canvas</h2>
+				<canvas id="grayscale_canvas" width="500" height="500"></canvas>
+			</div>
+		</div>
+	</body>
+
+</html>
